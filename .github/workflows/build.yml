@@ -5,12 +5,12 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-16.04
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '4.5.1'
+    - name: Setup Nuget.exe
+      uses: warrenbuckley/Setup-Nuget@v1
+    - run: nuget restore source/Contact-Conversion-Wizard.sln
     - run: dotnet build source/Contact-Conversion-Wizard.sln --configuration Release --framework net40
     - run: cd source/bin/Release/ && dir && cd
