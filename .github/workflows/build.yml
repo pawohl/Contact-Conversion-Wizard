@@ -13,4 +13,4 @@ jobs:
       with:
         dotnet-version: '4.5.1'
     - run: dotnet build source/Contact-Conversion-Wizard.sln --configuration Release --framework net40
-    - run: cd source/bin/Release/ && dir
+    - run: cd source/bin/Release/ && dir && cd
